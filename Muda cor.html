@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #contador {
+      font-weight: bold;
+      font-size: 2em;
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contador: <span id="contador">0</span></h1>
+  <button onclick="incrementar()">+1</button>
+  <button onclick="tira()">-1</button>
+  <button onclick="reset()">Volta a 0</button>
+
+  <script>
+    let contador = 0;
+
+    function atualizarTela() {
+      const contadorSpan = document.getElementById('contador');
+      contadorSpan.textContent = contador;
+
+      if (contador > 0) {
+        contadorSpan.style.color = 'green';
+      } else if (contador < 0) {
+        contadorSpan.style.color = 'red';
+      } else {
+        contadorSpan.style.color = 'black';
+      }
+    }
+
+    function incrementar() {
+      contador++;
+      atualizarTela();
+    }
+
+    function tira() {
+      contador--;
+      atualizarTela();
+    }
+
+    function reset() {
+      contador = 0;
+      atualizarTela();
+    }
+  </script>
+</body>
+</html>
